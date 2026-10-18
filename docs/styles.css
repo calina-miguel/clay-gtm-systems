@@ -670,7 +670,7 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 /* The systems title stays anchored while the rail rises underneath it. */
 .systems-stage {
   position: relative;
-  overflow: clip;
+  overflow: visible;
 }
 
 .systems-heading {
@@ -706,14 +706,21 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 
 .system-rail {
   position: relative;
-  z-index: 1;
-  padding-top: 120px;
+  z-index: 10;
+  margin-top: -190px;
+  padding-top: 0;
 }
 
 .system-feature,
 .system-tile {
+  position: relative;
+  z-index: 11;
+  background: #171817;
+  box-shadow: 0 -22px 44px rgba(23, 24, 23, .24);
   will-change: transform;
 }
+
+.system-feature { background: #314f46; }
 
 @media (max-width: 800px) {
   .systems-heading {
@@ -725,7 +732,7 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
   }
 
   .systems-heading::after { display: none; }
-  .system-rail { padding-top: 0; }
+  .system-rail { margin-top: 0; padding-top: 0; }
 }
 
 /* Visual hierarchy pass: calmer proportions, clearer editorial rhythm. */
