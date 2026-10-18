@@ -681,7 +681,8 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 
 /* The systems title stays anchored while the rail rises underneath it. */
 .systems-stage {
-  position: relative;
+  position: relative !important;
+  z-index: 0;
   overflow: visible;
 }
 
@@ -717,8 +718,8 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 }
 
 .system-rail {
-  position: relative;
-  z-index: 10;
+  position: relative !important;
+  z-index: 10 !important;
   margin-top: -190px;
   padding-top: 0;
 }
