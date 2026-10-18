@@ -737,6 +737,21 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 
 .system-feature { background: #314f46; }
 
+/* Requested systems layout values. */
+.systems-heading {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  z-index: 0;
+}
+
+.system-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #222 !important;
+}
+
 @media (max-width: 800px) {
   .systems-heading {
     position: relative;
