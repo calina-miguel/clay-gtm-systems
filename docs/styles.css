@@ -719,16 +719,18 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 
 .system-rail {
   position: relative !important;
-  z-index: 10 !important;
+  z-index: 20 !important;
   margin-top: -190px;
   padding-top: 0;
+  background: #171817;
+  isolation: isolate;
 }
 
 .system-feature,
 .system-tile {
   position: relative;
-  z-index: 11;
-  background: #171817;
+  z-index: 21;
+  background: #171817 !important;
   box-shadow: 0 -22px 44px rgba(23, 24, 23, .24);
   will-change: transform;
 }
