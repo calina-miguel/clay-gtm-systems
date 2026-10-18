@@ -762,6 +762,7 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 /* Let the systems heading complete its entrance before the rail crosses it. */
 .systems-heading {
   z-index: 2;
+  top: 40px;
   min-height: 390px;
   margin-bottom: 90px;
 }
