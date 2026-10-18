@@ -696,6 +696,24 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
   pointer-events: none;
 }
 
+.site-header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px clamp(20px, 5vw, 80px);
+  mix-blend-mode: multiply;
+}
+
+.site-progress { z-index: 9998; }
+.page-wipe { z-index: 9997; }
+
 .systems-heading h2,
 .systems-heading p,
 .systems-heading .section-label {
