@@ -752,6 +752,13 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
   background: #222 !important;
 }
 
+.contact-stage {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(110px, 16vw, 230px) clamp(20px, 8vw, 140px);
+  background: #9ce5a8;
+}
+
 @media (max-width: 800px) {
   .systems-heading {
     position: relative;
