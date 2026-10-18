@@ -18,7 +18,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 84px;
+}
+
+body {
+  overscroll-behavior-y: none;
 }
 
 body {
