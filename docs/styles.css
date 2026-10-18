@@ -254,6 +254,51 @@ h3 {
   gap: 16px;
 }
 
+.architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.architecture-card {
+  border-top: 3px solid #1d6f68;
+  padding: 20px 0;
+}
+
+.architecture-card h3 {
+  margin: 10px 0 7px;
+}
+
+.architecture-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.layer-number {
+  color: #1d6f68;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.quality-gate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 32px;
+  padding: 16px;
+  background: #eef6f4;
+  border-left: 4px solid #1d6f68;
+}
+
+.quality-gate span {
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #cfe2de;
+  font-size: .88rem;
+}
+
 .system-card,
 .package {
   padding: 22px;
@@ -426,6 +471,7 @@ ul {
   .systems,
   .packages,
   .process,
+  .architecture-grid,
   .metric-grid {
     grid-template-columns: 1fr;
   }
