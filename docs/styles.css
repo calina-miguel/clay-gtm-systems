@@ -667,6 +667,67 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 @media (max-width: 520px) { .site-header { padding: 18px 20px; }.header-link { display: none; }.hero-stage, .statement, .method-stack, .systems-stage, .process-stage, .contact-stage { padding-right: 20px; padding-left: 20px; }.hero-bottom { grid-template-columns: 1fr; }.hero-index { grid-column: 1; grid-row: auto; }.circle-link { margin-top: 14px; }.system-rail, .process-steps { grid-template-columns: 1fr; }.system-feature { grid-column: auto; min-height: 570px; }.process-steps > div { min-height: 190px; }.process-steps h3 { margin-top: 40px; }.site-footer { display: grid; } }
 .reduced-motion .hero-line, .reduced-motion .reveal-item { opacity: 1; transform: none; transition: none; }.reduced-motion .ticker-track, .reduced-motion .hero-orbit { animation: none; }
 
+/* The systems title stays anchored while the rail rises underneath it. */
+.systems-stage {
+  position: relative;
+  overflow: clip;
+}
+
+.systems-heading {
+  position: sticky;
+  top: 18vh;
+  z-index: 4;
+  width: min(54%, 760px);
+  min-height: 340px;
+  margin-bottom: -150px;
+  pointer-events: none;
+}
+
+.systems-heading h2,
+.systems-heading p,
+.systems-heading .section-label {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 24px rgba(23, 24, 23, .35);
+}
+
+.systems-heading::after {
+  position: absolute;
+  top: -34px;
+  left: -48px;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(215, 243, 107, .18);
+  border-radius: 50%;
+  content: "";
+  transform: translateY(calc(var(--section-shift, 0px) * -.18));
+  pointer-events: none;
+}
+
+.system-rail {
+  position: relative;
+  z-index: 1;
+  padding-top: 120px;
+}
+
+.system-feature,
+.system-tile {
+  will-change: transform;
+}
+
+@media (max-width: 800px) {
+  .systems-heading {
+    position: relative;
+    top: auto;
+    width: auto;
+    min-height: 0;
+    margin-bottom: 50px;
+  }
+
+  .systems-heading::after { display: none; }
+  .system-rail { padding-top: 0; }
+}
+
 /* Visual hierarchy pass: calmer proportions, clearer editorial rhythm. */
 .topbar {
   padding-inline: clamp(24px, 6vw, 96px);
