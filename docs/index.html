@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <header class="topbar" aria-label="Site header">
       <a class="brand" href="#top" aria-label="Clay GTM Systems home">
         <span class="brand-mark">CG</span>
@@ -263,6 +264,37 @@
         });
       }, { threshold: 0.12 });
       revealItems.forEach((item) => revealObserver.observe(item));
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = document.querySelector('.scroll-progress');
+      const parallaxItems = document.querySelectorAll('.hero-copy, .hero-panel, .architecture-card, .system-card, .package');
+      if (!reduceMotion) {
+        parallaxItems.forEach((item) => item.classList.add('parallax-surface'));
+        let ticking = false;
+        const updateMotion = () => {
+          const scrollY = window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (progress) progress.style.transform = `scaleX(${maxScroll > 0 ? scrollY / maxScroll : 0})`;
+          parallaxItems.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            const centerOffset = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+            const depth = index % 3 === 0 ? 7 : index % 3 === 1 ? 4 : 2;
+            item.style.setProperty('--parallax-y', `${Math.max(-depth, Math.min(depth, -centerOffset * depth))}px`);
+            if (item.classList.contains('hero-panel')) {
+              item.style.setProperty('--parallax-tilt', `${Math.max(-1.2, Math.min(1.2, centerOffset * -1.2))}deg`);
+            }
+          });
+          ticking = false;
+        };
+        const requestMotion = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updateMotion);
+        };
+        window.addEventListener('scroll', requestMotion, { passive: true });
+        window.addEventListener('resize', requestMotion, { passive: true });
+        requestMotion();
+      }
     </script>
   </body>
 </html>
