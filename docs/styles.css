@@ -708,7 +708,7 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
   justify-content: space-between;
   gap: 24px;
   padding: 24px clamp(20px, 5vw, 80px);
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 
 .site-progress { z-index: 9998; }
