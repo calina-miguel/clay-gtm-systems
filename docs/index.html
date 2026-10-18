@@ -30,6 +30,15 @@
       <section class="contact-stage" id="contact"><div class="section-label">05 <span>/</span> Start here</div><h2>Ready for a cleaner<br><em>pipeline?</em></h2><p>Tell me what your team is trying to source, qualify, or route. I’ll map the workflow around the outcome.</p><a class="contact-button" href="mailto:miguel.calina@gmail.com?subject=Clay%20GTM%20System%20Build">Start a conversation <span>↗</span></a><div class="contact-mark">CG</div></section>
     </main>
     <footer class="site-footer"><span>Clay GTM Systems</span><span>Built for cleaner growth systems.</span><a href="#top">Back to top ↑</a></footer>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
+        const smoothScroll = new Lenis({ duration: 1.15, smoothWheel: true, syncTouch: false, gestureOrientation: 'vertical' });
+        function smoothFrame(time) { smoothScroll.raf(time); requestAnimationFrame(smoothFrame); }
+        requestAnimationFrame(smoothFrame);
+        window.siteSmoothScroll = smoothScroll;
+      }
+    </script>
     <script>
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const root = document.documentElement;
       const reveal = document.querySelectorAll('.statement, .method-stack, .systems-stage, .process-stage, .contact-stage, .stack-card, .system-tile, .system-feature, .process-steps > div'); reveal.forEach((el) => el.classList.add('reveal-item'));
@@ -42,7 +51,8 @@
           const target = document.querySelector(link.getAttribute('href'));
           if (!target) return;
           event.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.siteSmoothScroll) window.siteSmoothScroll.scrollTo(target, { offset: -84 });
+          else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           history.pushState(null, '', link.getAttribute('href'));
         });
       });
