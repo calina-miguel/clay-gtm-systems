@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clay GTM Systems by Miguel Calina</title>
     <meta name="description" content="Productized Clay GTM systems for outbound, CRM enrichment, TAM scoring, local B2B prospecting, and intent follow-up.">
-    <link rel="stylesheet" href="./styles.css?v=557209e">
+    <link rel="stylesheet" href="./styles.css?v=motion-20261019">
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -295,6 +295,40 @@
         window.addEventListener('resize', requestMotion, { passive: true });
         requestMotion();
       }
+    </script>
+    <script>
+      const wipe = document.createElement('div');
+      wipe.className = 'page-wipe';
+      document.body.appendChild(wipe);
+      document.documentElement.classList.add('motion-ready');
+
+      const light = document.createElement('div');
+      light.className = 'cursor-light';
+      document.body.appendChild(light);
+
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!motionQuery.matches) {
+        window.addEventListener('pointermove', (event) => {
+          light.style.setProperty('--x', `${event.clientX}px`);
+          light.style.setProperty('--y', `${event.clientY}px`);
+        }, { passive: true });
+
+        document.querySelectorAll('.button').forEach((button) => {
+          button.addEventListener('pointermove', (event) => {
+            const box = button.getBoundingClientRect();
+            const x = (event.clientX - box.left - box.width / 2) * .12;
+            const y = (event.clientY - box.top - box.height / 2) * .12;
+            button.style.setProperty('--mx', `${x}px`);
+            button.style.setProperty('--my', `${y}px`);
+          });
+          button.addEventListener('pointerleave', () => {
+            button.style.setProperty('--mx', '0px');
+            button.style.setProperty('--my', '0px');
+          });
+        });
+      }
+
+      window.setTimeout(() => document.documentElement.classList.add('is-ready'), 80);
     </script>
   </body>
 </html>
