@@ -122,18 +122,10 @@ footer {
   .header-link { display: inline-flex; margin-left: auto; }
 }
 
-html.lenis,
-html.lenis body {
-  height: auto;
+html,
+body {
+  overflow-y: auto !important;
 }
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped { overflow: hidden; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis:not(.lenis-stopped) { overflow-y: auto !important; }
 
 .circle-link {
   animation: circle-float 3.8s ease-in-out infinite;
