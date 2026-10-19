@@ -127,6 +127,9 @@ body {
   overflow-y: auto !important;
 }
 
+html { overflow-x: clip !important; }
+body { overflow: visible !important; }
+
 .circle-link {
   animation: circle-float 3.8s ease-in-out infinite;
   will-change: transform;
