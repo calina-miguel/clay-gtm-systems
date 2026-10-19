@@ -36,6 +36,73 @@ footer {
   max-width: none;
 }
 
+@media (max-width: 960px) {
+  .site-header {
+    gap: 16px;
+    padding: 18px clamp(18px, 4vw, 40px);
+  }
+
+  .site-nav {
+    gap: 20px;
+    font-size: .64rem;
+  }
+
+  .header-link {
+    font-size: .66rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-wrap: wrap;
+    padding: 14px 18px;
+  }
+
+  .site-nav {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    gap: 24px;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 4px 0 2px;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .site-nav::-webkit-scrollbar { display: none; }
+  .header-link { margin-left: auto; }
+}
+
+@media (max-width: 460px) {
+  .brand { font-size: .72rem; }
+  .brand-mark { width: 30px; height: 30px; }
+  .header-link { font-size: 0; }
+  .header-link span { font-size: 1rem; }
+  .site-nav { gap: 20px; }
+}
+
+/* Final responsive header overrides. */
+@media (max-width: 720px) {
+  .site-header { flex-wrap: wrap; }
+  .site-nav {
+    display: flex;
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 460px) {
+  .site-nav { display: flex; gap: 20px; }
+  .header-link { display: inline-flex; margin-left: auto; }
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -927,6 +994,27 @@ h2 {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+}
+
+/* Final responsive header overrides. */
+@media (max-width: 720px) {
+  .site-header { flex-wrap: wrap; }
+  .site-nav {
+    display: flex;
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 460px) {
+  .site-nav { display: flex; gap: 20px; }
+  .header-link { display: inline-flex; margin-left: auto; }
 }
 
 /* Motion system: choreographed entrances, clipped reveals, and tactile pointer response. */
