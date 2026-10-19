@@ -791,6 +791,27 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
 .site-progress { z-index: 9998; }
 .page-wipe { z-index: 9997; }
 
+.systems-heading {
+  color: #f2f1ec;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, .32);
+}
+
+.systems-heading .section-label {
+  color: #d7f36b !important;
+}
+
+.systems-heading h2 {
+  color: #f2f1ec !important;
+}
+
+.systems-heading h2 em {
+  color: #9ce5a8 !important;
+}
+
+.systems-heading p {
+  color: rgba(242, 241, 236, .82) !important;
+}
+
 .systems-heading h2,
 .systems-heading p,
 .systems-heading .section-label {
