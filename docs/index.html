@@ -33,19 +33,26 @@
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
     <script>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
-        const smoothScroll = new Lenis({
-          lerp: 0.075,
-          duration: 1.6,
-          smoothWheel: true,
-          syncTouch: true,
-          wheelMultiplier: 0.82,
-          touchMultiplier: 1.05,
-          gestureOrientation: 'vertical',
-          easing: (t) => 1 - Math.pow(1 - t, 4)
-        });
-        function smoothFrame(time) { smoothScroll.raf(time); requestAnimationFrame(smoothFrame); }
-        requestAnimationFrame(smoothFrame);
-        window.siteSmoothScroll = smoothScroll;
+        try {
+          const smoothScroll = new Lenis({
+            lerp: 0.09,
+            duration: 1.35,
+            smoothWheel: true,
+            syncTouch: false,
+            wheelMultiplier: 0.9,
+            touchMultiplier: 1,
+            gestureOrientation: 'vertical',
+            easing: (t) => 1 - Math.pow(1 - t, 4)
+          });
+          smoothScroll.start();
+          function smoothFrame(time) { smoothScroll.raf(time); requestAnimationFrame(smoothFrame); }
+          requestAnimationFrame(smoothFrame);
+          window.siteSmoothScroll = smoothScroll;
+        } catch (error) {
+          document.documentElement.classList.remove('lenis', 'lenis-smooth', 'lenis-stopped');
+          document.documentElement.style.overflowY = 'auto';
+          document.body.style.overflowY = 'auto';
+        }
       }
     </script>
     <script>

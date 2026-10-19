@@ -133,6 +133,7 @@ html.lenis body {
 
 .lenis.lenis-stopped { overflow: hidden; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis:not(.lenis-stopped) { overflow-y: auto !important; }
 
 body {
   margin: 0;
