@@ -839,6 +839,14 @@ body { background: #f2f1ec; color: #171817; overflow-x: hidden; }
   text-shadow: 0 2px 24px rgba(23, 24, 23, .35);
 }
 
+.systems-heading h2,
+.systems-heading p,
+.systems-heading .section-label {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 24px rgba(23, 24, 23, .35);
+}
+
 .systems-heading::after {
   position: absolute;
   top: -34px;
