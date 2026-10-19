@@ -33,7 +33,16 @@
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
     <script>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
-        const smoothScroll = new Lenis({ duration: 1.15, smoothWheel: true, syncTouch: false, gestureOrientation: 'vertical' });
+        const smoothScroll = new Lenis({
+          lerp: 0.075,
+          duration: 1.6,
+          smoothWheel: true,
+          syncTouch: true,
+          wheelMultiplier: 0.82,
+          touchMultiplier: 1.05,
+          gestureOrientation: 'vertical',
+          easing: (t) => 1 - Math.pow(1 - t, 4)
+        });
         function smoothFrame(time) { smoothScroll.raf(time); requestAnimationFrame(smoothFrame); }
         requestAnimationFrame(smoothFrame);
         window.siteSmoothScroll = smoothScroll;
