@@ -26,6 +26,16 @@ body {
   overscroll-behavior-y: none;
 }
 
+html,
+body,
+main,
+section,
+header,
+footer {
+  width: auto;
+  max-width: none;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
